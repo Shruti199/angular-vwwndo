@@ -1,0 +1,191 @@
+<!--<p>
+Please enter your details
+</p>
+
+<h2 [style.color]="hasError ? 'green ': 'red'"> 
+  abc </h2>
+<h2 [style.color]= "makeitcolour" > kjshfsdf </h2>
+<h3 [ngStyle]="multiStyle"> Multistyle heading </h3>
+<button (click)="onClick()"> Welcome </button>
+{{greet}}
+<button (click)="greet='eeeee'" > Welcome </button>
+
+<input #Myinput type="ẗext"> 
+<button (click)= logMessage(Myinput.value) > Log </button>
+
+<input [(ngModel)]="name"  type="text" >
+{{name}}
+
+<!--
+<h2 *ngIf= "displayname; then thenblock; else elseBlock" > 
+</h2>
+
+  <ng-template #thenblock>
+    <h2> clear name </h2>
+  </ng-template>
+ <ng-template #elseblock>
+    <h2> hidden name 
+    </h2>
+ </ng-template>
+
+ -->
+<!--
+ <div [ngSwitch]="makeitcolour" >
+   <div *ngSwitchCase="'red'"> red</div>
+   <div *ngSwitchCase="'green'"> Green </div>
+   <div *ngSwitchCase="'yellow'"> Yellow</div>
+ </div> 
+
+
+ <div *ngFor= "let x of colors">
+   <h2>{{x}}</h2>
+
+   </div>
+
+
+   <hello (childevent)="message=$event" [childVar]="parentVar"> </hello>
+
+    <h1 > {{message}} </h1>
+
+<form [formGroup]="userProfile" (ngSubmit)="OnSubmit()">
+   <h1>
+     firstname: <input type="text" formControlName="firstName" >
+   </h1>
+   <h1>
+     lasttname: <input type="text" formControlName="lastName" >
+   </h1>
+   <button type="submit" [disabled]="!userProfile.valid"> Submit </button>
+</form>
+<br>
+<br>
+<br>
+
+<form [formGroup]="userForm" (ngSubmit)="OnSubmit()">
+  <label>
+    Address1: 
+    <input type="text" formControlName="address1">
+    <div *ngIf="address1.invalid && (address1.dirty)"  class ="alert alert-danger"> 
+      <div *ngIf="address1.errors.required">
+        Error in address1
+      </div>
+    </div>
+  </label>
+  <br>
+  <label>
+    Address2: 
+    <input type="text" formControlName="address2">
+  </label>
+  <div formGroupName="address3">
+    <label>
+    State: 
+    <input type="text" formControlName="state">
+  </label>
+  <br>
+  <label>
+    Zip: 
+    <input type="text" formControlName="zip">
+  </label>
+  </div>
+  <div formArrayName="mobiles">
+    <h3> enter mobile no. </h3>
+    <button (click)="addNewMobile()"> Add new mobile no</button>
+  <div *ngFor="let m of mobiles.controls; let i=index">
+    <label> Mobile {{i+1}}</label>
+    <input type="text" [formControlName]="i">
+  </div>
+  </div>
+    <button type="submit" [disabled]="!userForm.valid" > Submit </button>
+</form>
+
+
+<br>
+<br>
+<br> -->
+
+<form [formGroup]="detailsForm" (*ngSubmit)="OnSubmit()">
+  <h2> Please enter your details: </h2>
+  <h3> Personal Details-</h3>
+  <label>
+    Name:
+    <input type="text" formControlName="namE">
+  </label>
+  <div *ngIf="detailsForm.controls.namE.errors && detailsForm.controls.namE.errors.pattern">
+    Enter correct name
+  </div>
+  <br>
+  <label>
+    Age:
+    <input type="text" formControlName="age">
+  </label>
+  <div *ngIf="age.invalid && (age.dirty|| age.touched)"  class ="alert alert-danger"> 
+    <div *ngIf="age.errors.required">
+      Age required
+      </div>
+  <div *ngIf="age.errors.pattern">
+    Should be a no. 
+    </div>
+  </div>
+   <br>
+  <label>
+    DOB:
+    <input type="date" formControlName="dob">
+  </label>
+   <br>
+
+   <br>
+  <label>
+    Email ID:
+    <input type="email" formControlName="email">
+  </label>
+  
+   <br>
+  <h3> Address Details-</h3>
+  <label>
+    Address Line1:
+    <input type="text" formControlName="line1">
+  </label>
+  <div *ngIf="detailsForm.controls.line1.errors && detailsForm.controls.line1.errors.pattern">
+    Enter correct address
+  </div>
+   <br>
+  <label>
+    Address Line2:
+    <input type="text" formControlName="line2">
+  </label>
+  <div *ngIf="detailsForm.controls.line2.errors && detailsForm.controls.line2.errors.pattern">
+    Enter correct address
+  </div>
+   <br>
+  <label>
+    State:
+    <input type="text" formControlName="statE">
+  </label>
+  <div *ngIf="detailsForm.controls.statE.errors && detailsForm.controls.statE.errors.pattern">
+    Enter correct State
+  </div>
+   <br>
+  <label>
+    Country:
+    <input type="text" formControlName="country">
+  </label>
+  <div *ngIf="detailsForm.controls.country.errors && detailsForm.controls.country.errors.pattern">
+    Enter correct country
+  </div>
+   <br>
+  <label>
+    Pin code:
+    <input type="text" formControlName="pin">
+  </label>
+   <div *ngIf="detailsForm.controls.pin.errors && detailsForm.controls.pin.errors.pattern">
+    Enter correct pin 
+    </div>
+  <br>
+  <br>
+  <br>
+  <button type="submit" [disabled]="!userForm.valid">Sumbit</button>
+  <br>
+  <br>  
+  <nav>
+  <a routerLink="/hello"> Check your details here  </a>
+  </nav>
+<router-outlet></router-outlet>
