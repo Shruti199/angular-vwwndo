@@ -85,7 +85,7 @@ get  address1()
 
 detailsForm= new FormGroup({
 
-  namE: new FormControl('',Validators.pattern("[a-zA-Z]{3}"), ),
+  namE: new FormControl('',[Validators.pattern("[a-zA-Z]{3}"),FirstNameValidator() ]),
   age: new FormControl('',Validators.pattern("[0-9]")),
   dob: new FormControl(''),
   phone: new FormControl('',Validators.pattern("[0-9]")),

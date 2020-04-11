@@ -112,6 +112,9 @@ Please enter your details
   <div *ngIf="detailsForm.controls.namE.errors && detailsForm.controls.namE.errors.pattern">
     Enter correct name
   </div>
+  <div *ngIf="detailsForm.controls.namE.errors &&detailsForm.controls.namE.errors.NameNotAllowed">
+    Name not allowed
+    </div>
   <br>
   <label>
     Age:
