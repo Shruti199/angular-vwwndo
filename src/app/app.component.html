@@ -102,7 +102,7 @@ Please enter your details
 <br>
 <br> -->
 
-<form [formGroup]="detailsForm" (*ngSubmit)="OnSubmit()">
+<form [formGroup]="detailsForm" (ngSubmit)="OnSubmit()">
   <h2> Please enter your details: </h2>
   <h3> Personal Details-</h3>
   <label>
@@ -112,9 +112,7 @@ Please enter your details
   <div *ngIf="detailsForm.controls.namE.errors && detailsForm.controls.namE.errors.pattern">
     Enter correct name
   </div>
-  <div *ngIf="detailsForm.controls.namE.errors &&detailsForm.controls.namE.errors.NameNotAllowed">
-    Name not allowed
-    </div>
+  
   <br>
   <label>
     Age:
@@ -127,12 +125,17 @@ Please enter your details
   <div *ngIf="age.errors.pattern">
     Should be a no. 
     </div>
+    
   </div>
    <br>
   <label>
     DOB:
     <input type="date" formControlName="dob">
   </label>
+<div *ngIf="detailsForm.controls.dob.errors &&detailsForm.controls.dob.errors.NameNotAllowed">
+    Age not allowed
+    </div>
+  
    <br>
 
    <br>
@@ -185,7 +188,7 @@ Please enter your details
   <br>
   <br>
   <br>
-  <button type="submit" [disabled]="!userForm.valid">Sumbit</button>
+  <button type="submit" >Submit</button>
   <br>
   <br>  
   <nav>

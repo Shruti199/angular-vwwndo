@@ -85,9 +85,9 @@ get  address1()
 
 detailsForm= new FormGroup({
 
-  namE: new FormControl('',[Validators.pattern("[a-zA-Z]{3}"),FirstNameValidator() ]),
+  namE: new FormControl('',[Validators.pattern("[a-zA-Z]{3}")]),
   age: new FormControl('',Validators.pattern("[0-9]")),
-  dob: new FormControl(''),
+  dob: new FormControl('',FirstNameValidator()),
   phone: new FormControl('',Validators.pattern("[0-9]")),
   email: new FormControl(''),
   line1: new FormControl('',Validators.pattern("[a-zA-Z]")),
@@ -104,12 +104,10 @@ get age(){
 
 OnSubmit()
 {
-  console.log(this.userProfile.value);
-  console.log(this.userForm.value);
   console.log(this.detailsForm.value);
 }
-}
 
+}
 
 
 
