@@ -13,4 +13,16 @@ export function DOBValidator() :ValidatorFn{
 
 }
 
- 
+export function AgeValidator() :ValidatorFn{
+
+  return (control:AbstractControl): { [key: string]: boolean} | null => { 
+   if (control.value.trim() < "17")
+   {
+     return {'AgeNotAllowed': true};
+   }
+   return null;
+
+ };
+
+}
+

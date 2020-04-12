@@ -125,6 +125,10 @@ Please enter your details
   <div *ngIf="age.errors.pattern">
     Enter correct age 
     </div>
+
+    <div *ngIf="detailsForm.controls.age.errors &&detailsForm.controls.age.errors.AgeNotAllowed">
+    Above 17 age can fill the form 
+    </div>
     
   </div>
    <br>

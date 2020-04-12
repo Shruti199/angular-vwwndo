@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators, ReactiveFormsModule, FormBuilder, FormArray } from '@angular/forms';
 
-import { DOBValidator } from './restricted_name.directives';
+import { DOBValidator, AgeValidator } from './restricted_name.directives';
 
 @Component({
   selector: 'my-app',
@@ -86,7 +86,7 @@ get  address1()
 detailsForm= new FormGroup({
 
   namE: new FormControl('',[Validators.pattern("[a-zA-Z]{1,15}")]),
-  age: new FormControl('',Validators.pattern("[0-9]{1,2}")),
+  age: new FormControl('',[Validators.pattern("[0-9]{1,2}"), AgeValidator()]),
   dob: new FormControl('',DOBValidator()),
   phone: new FormControl('',Validators.pattern("[0-9]{10}")),
   email: new FormControl(''),
