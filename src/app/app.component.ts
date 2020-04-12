@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators, ReactiveFormsModule, FormBuilder, FormArray } from '@angular/forms';
 
-import { FirstNameValidator } from './restricted_name.directives';
+import { DOBValidator } from './restricted_name.directives';
 
 @Component({
   selector: 'my-app',
@@ -85,15 +85,15 @@ get  address1()
 
 detailsForm= new FormGroup({
 
-  namE: new FormControl('',[Validators.pattern("[a-zA-Z]{3}")]),
-  age: new FormControl('',Validators.pattern("[0-9]")),
-  dob: new FormControl('',FirstNameValidator()),
-  phone: new FormControl('',Validators.pattern("[0-9]")),
+  namE: new FormControl('',[Validators.pattern("[a-zA-Z]{1,15}")]),
+  age: new FormControl('',Validators.pattern("[0-9]{1,2}")),
+  dob: new FormControl('',DOBValidator()),
+  phone: new FormControl('',Validators.pattern("[0-9]{10}")),
   email: new FormControl(''),
-  line1: new FormControl('',Validators.pattern("[a-zA-Z]")),
-  line2: new FormControl('',Validators.pattern("[a-zA-Z]")),
-  statE: new FormControl('',Validators.pattern("[a-zA-Z]")),
-  country: new FormControl('',Validators.pattern("[a-zA-Z]")),
+  line1: new FormControl('',Validators.pattern("[a-zA-Z]+")),
+  line2: new FormControl('',Validators.pattern("[a-zA-Z]+")),
+  statE: new FormControl('',Validators.pattern("[a-zA-Z]+")),
+  country: new FormControl('',Validators.pattern("[a-zA-Z]+")),
   pin: new FormControl('',Validators.pattern("[0-9]{6}")),
 });
 
