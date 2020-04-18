@@ -139,6 +139,11 @@ Please enter your details
 <div *ngIf="detailsForm.controls.dob.errors &&detailsForm.controls.dob.errors.DOBNotAllowed">
     For people with DOB above 1990
     </div>
+
+    <div *ngIf="!detailsForm.controls.dob.errors.DOBNotAllowed">
+      Hey enter this field too
+      <input type="text" >
+    </div>
   
    <br>
 

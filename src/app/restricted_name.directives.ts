@@ -7,7 +7,7 @@ export function DOBValidator() :ValidatorFn{
    {
      return {'DOBNotAllowed': true};
    }
-   return null;
+   return {'DOBNotAllowed': false};
 
  };
 
